@@ -3,7 +3,7 @@
 """
 import csv
 import math
-from typing import List
+from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -31,8 +31,14 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        assert isinstance(page, int) and > 0 'should_err '
-        assert isinstance(page_size, int)  and > 0 'should_err '
+        
+        assert isinstance(page, int) and page > 0
+        assert isinstance(page_size, int) and page_size > 0
+        
         start_index, end_index = index_range(page, page_size)
-        if len(self.__dataset) < end_index
-        if start_index > range    
+
+        self.dataset()
+        if len(self.__dataset) < end_index:
+            return []
+
+        return self.__dataset[start_index:end_index]
